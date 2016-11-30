@@ -18,10 +18,11 @@ namespace ShortestPath
         private Node thisNode;
         private Node attachedNode;
 
-        public void SetContent(Node thisNode,Node attachedNode)
+        public void SetContent(Node thisNode,Node attachedNode,float edgeSize)
         {
             this.thisNode = thisNode;
             this.attachedNode = attachedNode;
+            Line.startWidth = Line.endWidth = edgeSize;
         }
 
         private void Update()

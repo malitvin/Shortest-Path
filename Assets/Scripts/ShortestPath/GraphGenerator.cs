@@ -12,6 +12,17 @@ namespace ShortestPath
         [Tooltip("How many Nodes Will Spawn")]
         public int spawnCount = 5;
 
+        [Space(10)]
+
+        [Header("Vertex and Edge Values")]
+        [Tooltip("Variables for Vertices and Edges")]
+        [Range(0.1f,5)]
+        public float vertexScale = 0.5f;
+        [Range(0.01f, 1)]
+        public float edgeWidth = 0.25f;
+
+        [Space(10)]
+
         private Node[] nodeContainer;
 
         public override void Init()
@@ -31,7 +42,8 @@ namespace ShortestPath
                     2
                     ));
                 nodeContainer[i]=GetPooledObject(screenPosition) as Node;
-                nodeContainer[i].Edge.SetContent(nodeContainer[i], nodeContainer[Random.Range(0, i)]);
+                nodeContainer[i].SetScale(vertexScale);
+                nodeContainer[i].Edge.SetContent(nodeContainer[i], nodeContainer[Random.Range(0, i)],edgeWidth);
             }
         }
     }

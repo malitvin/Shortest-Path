@@ -50,10 +50,16 @@ namespace ShortestPath
             other.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         }
 
-        private void AddForce(Vector3 forceVector)
+        public Vector3 GetPosition()
         {
+            return transform.position;
+        }
 
+        public void SetScale(float scale)
+        {
+            transform.localScale = new Vector3(scale, scale, scale);
         }
     }
+
 
 }
